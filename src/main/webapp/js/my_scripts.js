@@ -1,20 +1,24 @@
 $(document).ready(function(){
 
-	$.getJSON('/load', function(seats){
-		$("#added-books").append("<tr><td colspan='2'></td><td colspan=11><div class='screen'>screen</div></td><td colspan='2'></td></tr>")
-			.append("<tr><td colspan='15'>&nbsp</td></tr>")
-			.append("<tr id = 'tr1'></tr>");
+	$.getJSON("/load", function(seats){
 		var tr = $("#tr1");
-		var raw = 1;
+		var rowNum = $(".rowsNumbers");
+		var raw = 0;
+		var seat = 1;
 
 		$.each(seats, function(i, item){
 			if (item.raw != raw){
 				$("#added-books").append("<tr id = 'tr" + (++raw) + "'></tr>");
+				rowNum.append("<tr><td>Row "+raw+"</td></tr>");
 				tr = $("#tr" + raw);
+				seat = 1;
 			}
 
-			if (item.status==0) tr.append("<td><input type=checkbox name=id value=" + item.id + "></td>");
-			else tr.append("<td><input type=checkbox disabled name=id value="+item.id+"></td>");
+			if (item.status==0) tr.append("<td><input type=checkbox name=id value=" + item.id + " id = " + item.id + ">" +
+				"<label class = 'hover"+seat+" check' for = "+item.id+"></label></td>");
+			else tr.append("<td><input type=checkbox disabled name=id value="+item.id+">" +
+				"<label class = disabled for = "+item.id+"></label></td>");
+			seat++;
 		})
 	});
 
@@ -29,12 +33,9 @@ $(document).ready(function(){
 			dataType: 'JSON',
 			data: {seatData: JSON.stringify(data)},
 			success: function (seats) {
-				console.log(data);
 				$("#buy").remove();
 
-				var tab = $("#table_block").append("<div id ='block' style='width:500px'>"+
-					"<h2 style='color:#ccc'><small>Your seats</small></h2>");
-
+				$(".hallInfo").append("<div id ='block'><span id='span'>Your seats</sp></div>");
 				$.each(seats, function (i, seat) {
 					$("#block").append("<p><span>place:"+seat.place+", raw:"+seat.raw+", price:"+seat.price+"</span></p>");
 				});
@@ -50,22 +51,23 @@ $(document).ready(function(){
 			dataType: 'JSON',
 			data: {seatData: JSON.stringify(data)},
 			success: function (seats) {
-				console.log(data);
 				$("#added-books").empty();
-				$("#added-books").append("<tr><td colspan='2'></td><td colspan=11><div class='screen'>screen</div></td><td colspan='2'></td></tr>")
-					.append("<tr><td colspan='15'>&nbsp</td></tr>")
-					.append("<tr id = 'tr1'></tr>");
 				var tr = $("#tr1");
-				var raw = 1;
+				var raw = 0;
+				var seat = 1;
 
 				$.each(seats, function(i, item){
-						if (item.raw != raw){
-							$("#added-books").append("<tr id = 'tr" + (++raw) + "'></tr>");
-							tr = $("#tr" + raw);
-						}
+					if (item.raw != raw){
+						$("#added-books").append("<tr id = 'tr" + (++raw) + "'></tr>");
+						tr = $("#tr" + raw);
+						seat = 1;
+					}
 
-						if (item.status==0) tr.append("<td><input type=checkbox name=id value=" + item.id + "></td>");
-						else tr.append("<td><input type=checkbox disabled name=id value="+item.id+"></td>");
+					if (item.status==0) tr.append("<td><input type=checkbox name=id value=" + item.id + " id = " + item.id + ">" +
+						"<label class = 'hover"+seat+" check' for = "+item.id+"></label></td>");
+					else tr.append("<td><input type=checkbox disabled name=id value="+item.id+">" +
+						"<label class = disabled for = "+item.id+"></label></td>");
+					seat++;
 				})
 			},
 			error:function(data,status,er) {
@@ -78,7 +80,9 @@ $(document).ready(function(){
 		$.getJSON('/reserve', function(total_sum){
 			$("#sum").remove();
 			$("#block").remove();
-			$("#total_price").append("<div><button type='button' id='sum' class='btn btn-default'>"+total_sum+" grn</a></button></div>")
+			$("#total_price").append("<div><span id='sum' class=''>"+total_sum+" grn</span></div>")
 		});
 	});
 });
+
+

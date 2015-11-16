@@ -1,35 +1,221 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.hall{
+    width: 1000px;
+    height: 500px;
+    margin: 30px auto;
+    background: #f9f9f9;
+    box-shadow: 0 2px 2px #4a4a4a;
+}
+
+.filmInfo{
+    float: left;
+    width: 200px;
+    height: 100%;
+    background: #31708f;
+}
+
+.title{
+    margin: 20px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0 2px 2px #333;
+}
+
+.hallInfo{
+    float: left;
+    width: 800px;
+    height: 100%;
+//background: #5bc0de;
+}
+
 .screen {
-    color: #8D8D8D;
-    background-color: #EEE;
+    color: #6a6a6a;
+    background-color: #d2d2d2;
     font-size: 11pt;
     font-family: Arial,Helvetica,sans-serif;
     text-align: center;
     line-height: 16px;
-    height: 18px;
+    height: 20px;
+    margin: 20px 60px 10px 60px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    box-shadow: 0 3px 3px #979797;
 }
 
-.raw_left {
-    color: #8D8D8D;
-    font-size: 10pt;
-    font-family: Arial,Helvetica,sans-serif;
-    text-align: left;
+.seats{
+    width: 800px;
+    height: 300px;
+}
+
+.rowLeft{
+    float: left;
     width: 100px;
+    background: #737373;
+    border-radius: 0 5px 5px 0;
 }
-.raw_right {
-    color: #8D8D8D;
-    font-size: 10pt;
-    font-family: Arial,Helvetica,sans-serif;
-    text-align: right;
+.rowRight {
+    float: left;
     width: 100px;
+    background: #737373;
+    border-radius: 5px 0 0 5px;
 }
 
-.table-bordered{
-    //border: hidden;
+.rowsNumbers{
+    text-shadow: 0 2px 2px #444;
+    color: #f8f8f8;
 }
 
-.blue
-{
-    background-color:#04C;
+.rowsNumbers tr td{
+    font-size: 12px;
+    padding: 9px 0;
 }
+
+.table{
+    width: 600px;
+    float: left;
+}
+
+table{
+    margin: 30px auto;
+}
+
+input[type=checkbox] {
+    display:none;
+}
+
+input[type=checkbox] + label:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin: 5px 0;
+    background-color: #27ae60;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+
+input[type=checkbox] + label:hover:before,
+input[type=checkbox]:checked + label:before {
+    background-color: #e74c3c;
+    color: #fff;
+    text-align: center;
+}
+
+/*disabled*/
+input[type=checkbox] + label.disabled:before{
+    background: #95a5a6;
+}
+
+/*1*/
+input[type=checkbox] + label.hover1:hover:before,
+input[type=checkbox]:checked + label.hover1:before{
+    content: '1';
+}
+
+/*2*/
+input[type=checkbox] + label.hover2:hover:before,
+input[type=checkbox]:checked + label.hover2:before{
+    content: '2';
+}
+
+/*3*/
+input[type=checkbox] + label.hover3:hover:before,
+input[type=checkbox]:checked + label.hover3:before{
+    content: '3';
+}
+
+/*4*/
+input[type=checkbox] + label.hover4:hover:before,
+input[type=checkbox]:checked + label.hover4:before{
+    content: '4';
+}
+
+/*5*/
+input[type=checkbox] + label.hover5:hover:before,
+input[type=checkbox]:checked + label.hover5:before{
+    content: '5';
+}
+/*6*/
+input[type=checkbox] + label.hover6:hover:before,
+input[type=checkbox]:checked + label.hover6:before{
+    content: '6';
+}
+/*7*/
+input[type=checkbox] + label.hover7:hover:before,
+input[type=checkbox]:checked + label.hover7:before{
+    content: '7';
+}
+/*8*/
+input[type=checkbox] + label.hover8:hover:before,
+input[type=checkbox]:checked + label.hover8:before{
+    content: '8';
+}
+/*9*/
+input[type=checkbox] + label.hover9:hover:before,
+input[type=checkbox]:checked + label.hover9:before{
+    content: '9';
+}
+
+/*10*/
+input[type=checkbox] + label.hover10:hover:before,
+input[type=checkbox]:checked + label.hover10:before{
+    content: '10';
+}
+
+
+.buyButton{
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 40px;
+    font-size: 13px;
+    color: #fff;
+    background: #2980b9;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.buyButton:hover{
+    background: #3498db;
+}
+.buyButton:active{
+    background: #2574a8;
+}
+
+span {
+     color: #6a6a6a;
+     font-size: 11pt;
+     font-family: Arial, Helvetica, sans-serif;
+}
+
+#span {
+    color: #6a6a6a;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    margin:0
+}
+
+#sum{
+    font-size: 13px;
+    color: #fff;
+    background: #2980b9;
+}
+
+#block{
+    text-align: center;
+}
+
+
+
