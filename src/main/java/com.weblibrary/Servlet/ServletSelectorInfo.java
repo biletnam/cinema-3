@@ -1,11 +1,9 @@
 package com.weblibrary.Servlet;
-
 import com.google.gson.Gson;
 import com.weblibrary.dao.SeatDAO;
 import com.weblibrary.entity.Seat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +35,6 @@ public class ServletSelectorInfo extends HttpServlet {
         try{
             response.setContentType("application/json");
             response.getOutputStream().print(gson.toJson(seats));
-            response.getOutputStream().flush();
         } catch(Exception e){
             e.printStackTrace();
         }

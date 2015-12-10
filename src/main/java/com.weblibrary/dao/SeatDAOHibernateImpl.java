@@ -15,17 +15,6 @@ public class SeatDAOHibernateImpl implements SeatDAO {
         Criteria c1=session.createCriteria(Seat.class);
         ArrayList<Seat> seats= (ArrayList<Seat>) c1.list();
         HibernateUtil.commitTransaction();
-        System.out.println("Transaction findAll successful!!! ");
-        return seats;
-    }
-
-    public List<Seat> findReserved(int status){
-        Session session = HibernateUtil.beginTransaction();
-        Criteria c1=session.createCriteria(Seat.class);
-        c1.add(Restrictions.like("status", 1));
-        ArrayList<Seat> seats= (ArrayList<Seat>) c1.list();
-        HibernateUtil.commitTransaction();
-        System.out.println("Transaction findReserved successful!!! ");
         return seats;
     }
 
@@ -36,12 +25,21 @@ public class SeatDAOHibernateImpl implements SeatDAO {
         return seat;
     }
 
-    public Seat update(int id,int status) {
+    public Seat update(int id,int status) throws NullPointerException{
         Seat seat = findById(id);
         seat.setStatus(status);
         Session session = HibernateUtil.beginTransaction();
         session.saveOrUpdate(seat);
         HibernateUtil.commitTransaction();
         return seat;
+    }
+
+    public List<Seat> findReserved(int status){
+        Session session = HibernateUtil.beginTransaction();
+        Criteria c1=session.createCriteria(Seat.class);
+        c1.add(Restrictions.like("status", 1));
+        ArrayList<Seat> seats= (ArrayList<Seat>) c1.list();
+        HibernateUtil.commitTransaction();
+        return seats;
     }
 }

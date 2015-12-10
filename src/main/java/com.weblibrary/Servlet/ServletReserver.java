@@ -3,7 +3,6 @@ package com.weblibrary.Servlet;
 import com.google.gson.Gson;
 import com.weblibrary.dao.SeatDAO;
 import com.weblibrary.entity.Seat;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,5 +31,3 @@ public class ServletReserver extends HttpServlet {
         }
     }
 }
-
-
